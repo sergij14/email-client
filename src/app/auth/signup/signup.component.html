@@ -1,11 +1,47 @@
-<h3>Create an account</h3>
+<h3 class="title is-3">Create an account</h3>
 <form [formGroup]="form">
-  <input type="text" formControlName="username" placeholder="Email" />
-  <input type="password" formControlName="password" placeholder="Password" />
-  <input
-    type="password"
-    formControlName="passwordConfirmation"
-    placeholder="Password confirmation"
-  />
-  <button type="submit">Submit</button>
+  <div class="field">
+    <label class="label">Username</label>
+    <div class="control">
+      <input
+        class="input"
+        type="text"
+        formControlName="username"
+        placeholder="Username"
+      />
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Password</label>
+    <div class="control">
+      <input
+        class="input"
+        type="password"
+        formControlName="password"
+        placeholder="Password"
+      />
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Password confirmation</label>
+    <div class="control">
+      <input
+        class="input"
+        type="password"
+        formControlName="passwordConfirmation"
+        placeholder="Password confirmation"
+      />
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-link" type="submit">Submit</button>
+    </div>
+    <div class="control">
+      <button class="button is-link is-light">Sign in</button>
+    </div>
+  </div>
 </form>
