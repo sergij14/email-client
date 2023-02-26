@@ -18,7 +18,8 @@
       <a
         class="secondary-btn"
         routerLinkActive="active-btn"
-        routerLink="/signin"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLink="/"
         >Sign In</a
       >
       <a
