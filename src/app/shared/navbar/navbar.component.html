@@ -1,32 +1,35 @@
 <div
-  class="flex flex-col space-y-4 justify-center items-center sm:flex-row sm:justify-between sm:space-y-0 py-4 border-b mb-8"
+  class="flex flex-col space-y-2 justify-center sm:flex-row sm:justify-between sm:space-y-0 border-b mb-8"
 >
-  <h1 class="font-extrabold text-3xl md:text-4xl text-blue-500">
-    <a routerLink="/">EmailClient</a>
+  <h1 class="mt-4 sm:mt-0 font-extrabold text-3xl md:text-4xl text-blue-500 flex items-center justify-center">
+    <a class="" routerLink="/">EmailClient</a>
   </h1>
-  <div class="flex space-x-4 items-center">
+  <div class="flex items-stretch justify-center sm:justify-start">
     <ng-container *ngIf="signedin">
-      <a class="secondary-btn" routerLinkActive="active-btn" routerLink="/inbox"
+      <a
+        class="navbar-item"
+        routerLinkActive="navbar-item-active"
+        routerLink="/inbox"
         >Inbox</a
       >
       <a
-        class="secondary-btn"
-        routerLinkActive="active-btn"
+        class="navbar-item"
+        routerLinkActive="navbar-item-active"
         routerLink="/signout"
         >Sign Out</a
       >
     </ng-container>
     <ng-container *ngIf="!signedin">
       <a
-        class="secondary-btn"
-        routerLinkActive="active-btn"
+        class="navbar-item"
+        routerLinkActive="navbar-item-active"
         [routerLinkActiveOptions]="{ exact: true }"
         routerLink="/"
         >Sign In</a
       >
       <a
-        class="secondary-btn"
-        routerLinkActive="active-btn"
+        class="navbar-item"
+        routerLinkActive="navbar-item-active"
         routerLink="/signup"
         >Sign Up</a
       >
