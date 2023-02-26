@@ -11,6 +11,13 @@ type UsernameAvailableResponse =
 
 interface SignupCredentials {
   username: string;
+  password: string;
+  passwordConfirmation: string;
+}
+
+interface SigninCredentials {
+  username: string;
+  password: string;
 }
 
 interface SignupResponse {
@@ -76,6 +83,18 @@ export class AuthService {
       .pipe(
         tap(() => {
           this.signedin$.next(false);
+        })
+      );
+  }
+
+  signin(credentials: SigninCredentials) {
+    console.log(credentials);
+    
+    return this.httpClient
+      .post(`${this.rootURL}/auth/signin`, credentials)
+      .pipe(
+        tap(() => {
+          this.signedin$.next(true);
         })
       );
   }

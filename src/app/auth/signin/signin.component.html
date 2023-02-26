@@ -15,6 +15,16 @@
       label="Password"
       [control]="$any(form.get('password'))"
     ></app-input>
+
+    <p
+      *ngIf="
+    form.errors?.['noConnection']
+  "
+      class="field-error-msg"
+    >
+      No connection to the server
+    </p>
+
     <div class="flex space-x-2">
       <button type="submit" class="primary-btn">Submit</button>
       <a

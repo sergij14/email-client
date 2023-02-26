@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -21,6 +22,8 @@ export class SigninComponent {
     ]),
   });
 
+  constructor(private authService: AuthService) {}
+
   onSubmit() {
     if (this.form.invalid) {
       Object.keys(this.form.controls).forEach((field) =>
@@ -28,5 +31,16 @@ export class SigninComponent {
       );
       return;
     }
+
+    this.authService.signin(this.form.value).subscribe({
+      next: (res) => {
+        //navigate to route
+      },
+      error: (err) => {
+        if (!err.status) {
+          this.form.setErrors({ noConnection: true });
+        }
+      },
+    });
   }
 }
