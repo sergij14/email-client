@@ -1,0 +1,32 @@
+<div class="flex justify-between py-4 border-b mb-8">
+  <h1 class="font-extrabold text-4xl text-blue-500">
+    <a routerLink="/">EmailClient</a>
+  </h1>
+  <div class="flex space-x-4 items-center">
+    <ng-container *ngIf="signedin">
+      <a class="secondary-btn" routerLinkActive="active-btn" routerLink="/inbox"
+        >Inbox</a
+      >
+      <a
+        class="secondary-btn"
+        routerLinkActive="active-btn"
+        routerLink="/signout"
+        >Sign Out</a
+      >
+    </ng-container>
+    <ng-container *ngIf="!signedin">
+      <a
+        class="secondary-btn"
+        routerLinkActive="active-btn"
+        routerLink="/signin"
+        >Sign In</a
+      >
+      <a
+        class="secondary-btn"
+        routerLinkActive="active-btn"
+        routerLink="/signup"
+        >Sign Up</a
+      >
+    </ng-container>
+  </div>
+</div>
