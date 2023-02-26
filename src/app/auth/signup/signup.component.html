@@ -46,7 +46,8 @@
   </div>
 </form>
 
-{{ form.get('username')?.errors| json }} <br />
-{{ form.get('passwordConfirmation')?.errors| json }} <br />
-{{ form.get('password')?.errors| json }} <br />
+{{ form.get("username")?.errors | json }} <br />
+{{ form.get("passwordConfirmation")?.errors | json }} <br />
+{{ form.get("password")?.errors | json }} <br />
 {{ form.valid | json }} <br />
+{{ form.errors | json }} <br />
