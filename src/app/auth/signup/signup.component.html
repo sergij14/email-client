@@ -7,18 +7,21 @@
   ></app-input>
   <app-input
     inputType="password"
-    label="Username"
+    label="Password"
     [control]="$any(form.get('password'))"
   ></app-input>
   <app-input
     inputType="password"
-    label="Username"
+    label="Password confirmation"
     [control]="$any(form.get('passwordConfirmation'))"
   ></app-input>
-</form>
 
-{{ form.get("username")?.errors | json }} <br />
-{{ form.get("passwordConfirmation")?.errors | json }} <br />
-{{ form.get("password")?.errors | json }} <br />
-{{ form.valid | json }} <br />
-{{ form.errors | json }} <br />
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-link" type="submit">Submit</button>
+    </div>
+    <div class="control">
+      <button class="button is-link is-light">Sign in</button>
+    </div>
+  </div>
+</form>
