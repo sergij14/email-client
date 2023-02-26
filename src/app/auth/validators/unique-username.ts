@@ -17,16 +17,20 @@ export class UniqueUsername implements AsyncValidator {
   ): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
     const { value } = control;
 
-    return this.authService.usernameAvaliable(value)
-      .pipe(
-        map((value) => {
-          return value.available && null;
-        }),
-        catchError((err) => {
+    return this.authService.usernameAvaliable(value).pipe(
+      map((value) => {
+        return value.available && null;
+      }),
+      catchError((err) => {
+        if (err.error.username) {
           return of({
             nonUniqueUsername: true,
           });
-        })
-      );
+        }
+        return of({
+          noConnection: true,
+        });
+      })
+    );
   };
 }
