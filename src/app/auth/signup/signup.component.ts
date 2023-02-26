@@ -46,6 +46,9 @@ export class SignupComponent {
 
   onSubmit() {
     if (this.form.invalid) {
+      Object.keys(this.form.controls).forEach((field) =>
+        this.form.get(field)?.markAsDirty()
+      );
       return;
     }
 

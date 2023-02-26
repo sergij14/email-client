@@ -1,35 +1,54 @@
-<div class="field mb-4">
-  <label class="label">{{ label }}</label>
+<div>
+  <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{
+    label
+  }}</label>
   <div class="control">
     <input
-      class="input"
+      class="bg-gray-50 border border-gray-300 focus:outline-none text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
       [ngClass]="{ 'is-danger': !control.valid && control.dirty }"
       [type]="inputType"
       [formControl]="control"
-      placeholder="Username"
     />
   </div>
   <div *ngIf="!control.valid && control.dirty">
-    <p *ngIf="control.errors?.['required']" class="help is-danger">
+    <p
+      *ngIf="control.errors?.['required']"
+      class="mt-2 text-sm text-red-600 dark:text-red-500"
+    >
       Field is required
     </p>
-    <p *ngIf="control.errors?.['minlength']" class="help is-danger">
+    <p
+      *ngIf="control.errors?.['minlength']"
+      class="mt-2 text-sm text-red-600 dark:text-red-500"
+    >
       Value you entered is
       {{control.errors?.['minlength']['actualLength']}} characters long, but it
       must be at least {{control.errors?.['minlength']['requiredLength']}}
     </p>
-    <p *ngIf="control.errors?.['maxlength']" class="help is-danger">
+    <p
+      *ngIf="control.errors?.['maxlength']"
+      class="mt-2 text-sm text-red-600 dark:text-red-500"
+    >
       Value you entered is
       {{control.errors?.['maxlength']['actualLength']}} characters long, but it
       can't be longer than {{control.errors?.['maxlength']['requiredLength']}}
     </p>
-    <p *ngIf="control.errors?.['pattern']" class="help is-danger">
+    <p
+      *ngIf="control.errors?.['pattern']"
+      class="mt-2 text-sm text-red-600 dark:text-red-500"
+    >
       Invalid format
     </p>
-    <p *ngIf="control.errors?.['nonUniqueUsername']" class="help is-danger">
+    <p
+      *ngIf="control.errors?.['nonUniqueUsername']"
+      class="mt-2 text-sm text-red-600 dark:text-red-500"
+    >
       Username is taken
     </p>
-    <p *ngIf="control.errors?.['noConnection']" class="help is-danger">
+    <p
+      *ngIf="control.errors?.['noConnection']"
+      class="mt-2 text-sm text-red-600 dark:text-red-500"
+    >
       No connection to check username
     </p>
   </div>

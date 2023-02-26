@@ -1,47 +1,53 @@
-<h3 class="title is-3">Create an account</h3>
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <app-input
-    label="Username"
-    inputType="text"
-    [control]="$any(form.get('username'))"
-  ></app-input>
-  <app-input
-    inputType="password"
-    label="Password"
-    [control]="$any(form.get('password'))"
-  ></app-input>
-  <app-input
-    inputType="password"
-    label="Password confirmation"
-    [control]="$any(form.get('passwordConfirmation'))"
-  ></app-input>
+<div class="max-w-md mx-auto">
+  <h3 class="text-3xl font-extrabold my-4">Create an account</h3>
+  <form
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+    class="flex flex-col space-y-4"
+  >
+    <app-input
+      label="Username"
+      inputType="text"
+      [control]="$any(form.get('username'))"
+    ></app-input>
+    <app-input
+      inputType="password"
+      label="Password"
+      [control]="$any(form.get('password'))"
+    ></app-input>
+    <app-input
+      inputType="password"
+      label="Password confirmation"
+      [control]="$any(form.get('passwordConfirmation'))"
+    ></app-input>
 
-  <p
-    *ngIf="
+    <p
+      *ngIf="
       form.get('password')?.touched &&
       form.get('passwordConfirmation')?.touched &&
       form.errors?.['passwordsDontMatch']
     "
-    class="help is-danger mb-4"
-  >
-    Password and Password confirmation must match
-  </p>
+      class="mt-2 text-sm text-red-600 dark:text-red-500"
+    >
+      Password and Password confirmation must match
+    </p>
 
-  <p
-    *ngIf="
+    <p
+      *ngIf="
     form.errors?.['noConnection']
   "
-    class="help is-danger mb-4"
-  >
-    No connection to the server
-  </p>
+      class="mt-2 text-sm text-red-600 dark:text-red-500"
+    >
+      No connection to the server
+    </p>
 
-  <div class="field is-grouped">
-    <div class="control">
-      <button class="button is-link" type="submit">Submit</button>
+    <div class="flex space-x-2">
+      <button
+        type="submit"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2"
+      >
+        Submit
+      </button>
     </div>
-    <div class="control">
-      <button class="button is-link is-light">Sign in</button>
-    </div>
-  </div>
-</form>
+  </form>
+</div>
