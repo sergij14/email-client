@@ -27,7 +27,7 @@
       form.get('passwordConfirmation')?.touched &&
       form.errors?.['passwordsDontMatch']
     "
-      class="mt-2 text-sm text-red-600 dark:text-red-500"
+      class="field-error-msg"
     >
       Password and Password confirmation must match
     </p>
@@ -36,7 +36,7 @@
       *ngIf="
     form.errors?.['noConnection']
   "
-      class="mt-2 text-sm text-red-600 dark:text-red-500"
+      class="field-error-msg"
     >
       No connection to the server
     </p>
@@ -44,7 +44,7 @@
     <div class="flex space-x-2">
       <button
         type="submit"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2"
+        class="primary-btn"
       >
         Submit
       </button>

@@ -5,7 +5,13 @@
 @tailwind utilities;
 
 @layer utilities {
-  .error-input {
-    @apply bg-red-50 border border-red-500 text-red-900 placeholder-red-700;
+  .field-error-msg {
+    @apply mt-2 text-sm text-red-600 dark:text-red-500;
+  }
+  .field-input {
+    @apply bg-gray-50 border border-gray-300 focus:outline-none text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5;
+  }
+  .primary-btn {
+    @apply text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center;
   }
 }
