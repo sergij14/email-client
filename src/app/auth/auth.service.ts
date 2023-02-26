@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ValidationErrors } from '@angular/forms';
-import { BehaviorSubject, tap } from 'rxjs';
+import { BehaviorSubject, map, tap } from 'rxjs';
 
 type UsernameAvailableResponse =
   | {
@@ -14,6 +14,11 @@ interface SignupCredentials {
 }
 
 interface SignupResponse {
+  username: string;
+}
+
+interface SignedinResponse {
+  authenticated: boolean;
   username: string;
 }
 
@@ -37,10 +42,24 @@ export class AuthService {
 
   signup(credentials: SignupCredentials) {
     return this.httpClient
-      .post<SignupResponse>(`${this.rootURL}/auth/signup`, credentials)
+      .post<SignupResponse>(`${this.rootURL}/auth/signup`, credentials, {
+        withCredentials: true,
+      })
       .pipe(
         tap(() => {
           this.signedin$.next(true);
+        })
+      );
+  }
+
+  checkAuthState() {
+    return this.httpClient
+      .get<SignedinResponse>(`${this.rootURL}/auth/signedin`, {
+        withCredentials: true,
+      })
+      .pipe(
+        map(({ authenticated, username }) => {
+          this.signedin$.next(authenticated);
         })
       );
   }
