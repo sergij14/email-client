@@ -1,4 +1,4 @@
 <div class="mx-auto px-4 max-w-7xl">
-  <app-navbar [signedin]="signedin"></app-navbar>
+  <app-navbar [signedin]="signedin$ | async"></app-navbar>
   <router-outlet></router-outlet>
 </div>

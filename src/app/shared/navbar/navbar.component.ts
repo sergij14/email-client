@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
-  @Input() signedin = false;
+  @Input() signedin: boolean | null = null;
 }
