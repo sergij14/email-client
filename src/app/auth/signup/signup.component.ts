@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -8,8 +8,21 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class SignupComponent {
   form: FormGroup = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
-    passwordConfirmation: new FormControl(''),
+    username: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(20),
+      Validators.pattern(/^[a-z0-9]+$/i),
+    ]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+      Validators.maxLength(20),
+    ]),
+    passwordConfirmation: new FormControl('', [
+      Validators.required,
+      Validators.minLength(4),
+      Validators.maxLength(20),
+    ]),
   });
 }
