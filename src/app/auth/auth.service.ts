@@ -8,6 +8,10 @@ type UsernameAvailableResponse =
     }
   | ValidationErrors;
 
+interface SignupCredentials {
+  username: string;
+}
+
 interface SignupResponse {
   username: string;
 }
@@ -18,18 +22,20 @@ interface SignupResponse {
 export class AuthService {
   constructor(private httpClient: HttpClient) {}
 
+  rootURL = 'https://api.angular-email.com';
+
   usernameAvaliable(username: string) {
     return this.httpClient.post<UsernameAvailableResponse>(
-      'https://api.angular-email.com/auth/username',
+      `${this.rootURL}/auth/username`,
       {
         username,
       }
     );
   }
 
-  signup(credentials: any) {
+  signup(credentials: SignupCredentials) {
     return this.httpClient.post<SignupResponse>(
-      'https://api.angular-email.com/auth/signup',
+      `${this.rootURL}/auth/signup`,
       credentials
     );
   }

@@ -44,7 +44,7 @@ export class SignupComponent {
     private authService: AuthService
   ) {}
 
-  onSubmit(evt: any) {
+  onSubmit() {
     if (this.form.invalid) {
       return;
     }
