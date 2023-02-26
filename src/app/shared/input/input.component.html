@@ -3,7 +3,8 @@
   <div class="control">
     <input
       class="input"
-      type="text"
+      [ngClass]="{ 'is-danger': !control.valid }"
+      [type]="inputType"
       [formControl]="control"
       placeholder="Username"
     />
