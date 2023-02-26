@@ -20,4 +20,7 @@
   .active-btn {
     @apply !border-blue-400;
   }
+  .section-title {
+    @apply text-2xl md:text-3xl font-extrabold my-4;
+  }
 }
