@@ -89,9 +89,11 @@ export class AuthService {
 
   signin(credentials: SigninCredentials) {
     console.log(credentials);
-    
+
     return this.httpClient
-      .post(`${this.rootURL}/auth/signin`, credentials)
+      .post(`${this.rootURL}/auth/signin`, credentials, {
+        withCredentials: true,
+      })
       .pipe(
         tap(() => {
           this.signedin$.next(true);
