@@ -20,11 +20,20 @@
     *ngIf="
       form.get('password')?.touched &&
       form.get('passwordConfirmation')?.touched &&
-      form.errors
+      form.errors?.['passwordsDontMatch']
     "
     class="help is-danger mb-4"
   >
     Password and Password confirmation must match
+  </p>
+
+  <p
+    *ngIf="
+    form.errors?.['noConnection']
+  "
+    class="help is-danger mb-4"
+  >
+    No connection to the server
   </p>
 
   <div class="field is-grouped">

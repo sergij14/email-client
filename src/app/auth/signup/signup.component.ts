@@ -49,8 +49,15 @@ export class SignupComponent {
       return;
     }
 
-    this.authService.signup(this.form.value).subscribe((res) => {
-      console.log(res.username);
+    this.authService.signup(this.form.value).subscribe({
+      next: (res) => {
+        //navigate to route
+      },
+      error: (err) => {
+        if (!err.status) {
+          this.form.setErrors({ noConnection: true });
+        }
+      },
     });
   }
 }
