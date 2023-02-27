@@ -1,6 +1,8 @@
 <div>
   <div *ngFor="let email of emails">
-    {{ email.from }} <br />
-    {{ email.subject }} <br />
+    <a [routerLink]="email.id">
+      {{ email.from }} <br />
+      {{ email.subject }} <br />
+    </a>
   </div>
 </div>
