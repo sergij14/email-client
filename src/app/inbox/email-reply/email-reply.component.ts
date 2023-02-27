@@ -27,5 +27,9 @@ export class EmailReplyComponent implements OnInit {
     this.modalVisible = false;
   }
 
-  onEmailSubmit(email: Email) {}
+  onEmailSubmit(email: Email) {
+    this.emailService.sendEmail(email).subscribe(() => {
+      this.hideModal();
+    });
+  }
 }
