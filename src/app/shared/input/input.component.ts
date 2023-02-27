@@ -10,4 +10,5 @@ export class InputComponent {
   @Input() label!: string;
   @Input() inputType!: string;
   @Input() control!: FormControl;
+  @Input() controlType: string = 'input';
 }

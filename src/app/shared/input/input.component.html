@@ -4,57 +4,43 @@
   }}</label>
   <div class="control">
     <input
+      *ngIf="controlType === 'input'"
       class="field-input"
       [ngClass]="{ 'is-danger': !control.valid && control.dirty }"
       [type]="inputType"
       [formControl]="control"
     />
+    <textarea
+      *ngIf="controlType === 'textarea'"
+      class="field-input max-h-52"
+      [ngClass]="{ 'is-danger': !control.valid && control.dirty }"
+      [formControl]="control"
+    ></textarea>
   </div>
   <div *ngIf="!control.valid && control.dirty">
-    <p
-      *ngIf="control.errors?.['required']"
-      class="field-error-msg"
-    >
+    <p *ngIf="control.errors?.['required']" class="field-error-msg">
       Field is required
     </p>
-    <p
-    *ngIf="control.errors?.['email']"
-    class="field-error-msg"
-  >
-    Enter a valid email
-  </p>
-    <p
-      *ngIf="control.errors?.['minlength']"
-      class="field-error-msg"
-    >
+    <p *ngIf="control.errors?.['email']" class="field-error-msg">
+      Enter a valid email
+    </p>
+    <p *ngIf="control.errors?.['minlength']" class="field-error-msg">
       Value you entered is
       {{control.errors?.['minlength']['actualLength']}} characters long, but it
       must be at least {{control.errors?.['minlength']['requiredLength']}}
     </p>
-    <p
-      *ngIf="control.errors?.['maxlength']"
-      class="field-error-msg"
-    >
+    <p *ngIf="control.errors?.['maxlength']" class="field-error-msg">
       Value you entered is
       {{control.errors?.['maxlength']['actualLength']}} characters long, but it
       can't be longer than {{control.errors?.['maxlength']['requiredLength']}}
     </p>
-    <p
-      *ngIf="control.errors?.['pattern']"
-      class="field-error-msg"
-    >
+    <p *ngIf="control.errors?.['pattern']" class="field-error-msg">
       Invalid format
     </p>
-    <p
-      *ngIf="control.errors?.['nonUniqueUsername']"
-      class="field-error-msg"
-    >
+    <p *ngIf="control.errors?.['nonUniqueUsername']" class="field-error-msg">
       Username is taken
     </p>
-    <p
-      *ngIf="control.errors?.['noConnection']"
-      class="field-error-msg"
-    >
+    <p *ngIf="control.errors?.['noConnection']" class="field-error-msg">
       No connection to check username
     </p>
   </div>
