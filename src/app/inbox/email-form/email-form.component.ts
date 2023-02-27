@@ -23,4 +23,6 @@ export class EmailFormComponent implements OnInit {
       text: new FormControl(text),
     });
   }
+
+  onSubmit() {}
 }

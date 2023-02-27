@@ -14,7 +14,7 @@ export class EmailCreateComponent {
     this.email = {
       id: '',
       to: '',
-      from: '',
+      from: 'test11@angular-email.com',
       html: '',
       text: '',
       subject: '',

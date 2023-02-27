@@ -1,1 +1,38 @@
-<p>email-form works!</p>
+<form
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+  class="flex flex-col space-y-4"
+>
+  <app-input
+    inputType="email"
+    label="To"
+    [control]="$any(form.get('to'))"
+  ></app-input>
+  <app-input
+    inputType="email"
+    label="From"
+    [control]="$any(form.get('from'))"
+  ></app-input>
+  <app-input
+    inputType="email"
+    label="Subject"
+    [control]="$any(form.get('subject'))"
+  ></app-input>
+  <app-input
+    inputType="email"
+    label="Content"
+    [control]="$any(form.get('text'))"
+  ></app-input>
+  <!-- <p
+  *ngIf="
+form.errors?.['noConnection']
+"
+  class="field-error-msg"
+>
+  No connection to the server
+</p> -->
+
+  <div class="flex space-x-2">
+    <button type="submit" class="primary-btn">Submit</button>
+  </div>
+</form>
