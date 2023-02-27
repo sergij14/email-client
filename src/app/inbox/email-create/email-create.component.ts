@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Email } from '../email';
 
 @Component({
   selector: 'app-email-create',
@@ -7,6 +8,18 @@ import { Component } from '@angular/core';
 })
 export class EmailCreateComponent {
   modalVisible = false;
+  email!: Email;
+
+  constructor() {
+    this.email = {
+      id: '',
+      to: '',
+      from: '',
+      html: '',
+      text: '',
+      subject: '',
+    };
+  }
 
   showModal() {
     this.modalVisible = true;
