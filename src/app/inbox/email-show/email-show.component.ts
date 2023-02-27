@@ -11,6 +11,7 @@ import { EmailService } from '../email.service';
 })
 export class EmailShowComponent implements OnInit {
   email!: Email | null;
+  replyEmail!: Email | null;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,6 +27,15 @@ export class EmailShowComponent implements OnInit {
       )
       .subscribe((email) => {
         this.email = email;
+
+        const text = this.email.text.replace(/\n/gi, '\n> ');
+        this.replyEmail = {
+          ...this.email,
+          to: this.email?.from || '',
+          from: this.email?.to || '',
+          subject: `RE: ${this.email?.subject}` || '',
+          text: `\n ------- ${this.email.from} wrote: \n > ${text}`,
+        };
       });
   }
 }

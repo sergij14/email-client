@@ -1,15 +1,18 @@
 <div>
-    <div class="border-b pb-4 mb-4">
-        <h3 class="font-black text-xl">
-            {{ email?.subject }}
-          </h3>
-          <p>
-            From: <i>{{ email?.from }}</i>
-          </p>
-          <p>
-            to: <i>{{ email?.to }}</i>
-          </p>
-    </div>
+  <div class="border-b pb-4 mb-2">
+    <h3 class="font-black text-xl">
+      {{ email?.subject }}
+    </h3>
+    <p>
+      From: <i>{{ email?.from }}</i>
+    </p>
+    <p>
+      to: <i>{{ email?.to }}</i>
+    </p>
+  </div>
+  <div>
+    <app-email-reply [email]="replyEmail"></app-email-reply>
+  </div>
   <div [innerHTML]="email?.html">
     {{ email?.html }}
   </div>

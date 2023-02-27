@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Email } from '../email';
 import { EmailService } from '../email.service';
@@ -8,23 +8,16 @@ import { EmailService } from '../email.service';
   templateUrl: './email-reply.component.html',
   styleUrls: ['./email-reply.component.css'],
 })
-export class EmailReplyComponent {
+export class EmailReplyComponent implements OnInit {
   modalVisible = false;
-  email!: Email;
+  @Input() email: Email | null = null;
 
   constructor(
     private authService: AuthService,
     private emailService: EmailService
-  ) {
-    this.email = {
-      id: '',
-      to: '',
-      from: `${authService.username}@angular-email.com`,
-      html: '',
-      text: '',
-      subject: '',
-    };
-  }
+  ) {}
+
+  ngOnInit(): void {}
 
   showModal() {
     this.modalVisible = true;

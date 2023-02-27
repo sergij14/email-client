@@ -9,20 +9,18 @@ import { EmailService } from '../email.service';
   styleUrls: ['./email-form.component.css'],
 })
 export class EmailFormComponent implements OnInit {
-  @Input() email!: Email;
+  @Input() email!: Email | null;
   @Output() emailSubmit = new EventEmitter();
   form!: FormGroup;
 
   constructor(private emailService: EmailService) {}
 
   ngOnInit() {
-    const { subject, from, to, text } = this.email;
-
     this.form = new FormGroup({
-      to: new FormControl(to, [Validators.required, Validators.email]),
-      from: new FormControl({ value: from, disabled: true }),
-      subject: new FormControl(subject, [Validators.required]),
-      text: new FormControl(text, [Validators.required]),
+      to: new FormControl(this.email?.to, [Validators.required, Validators.email]),
+      from: new FormControl({ value: this.email?.from, disabled: true }),
+      subject: new FormControl(this.email?.subject, [Validators.required]),
+      text: new FormControl(this.email?.text, [Validators.required]),
     });
   }
 

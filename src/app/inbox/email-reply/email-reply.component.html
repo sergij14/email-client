@@ -1,9 +1,9 @@
 <div class="border-b pb-2 mb-2">
-    <button (click)="showModal()" class="primary-btn">Reply</button>
+    <button (click)="showModal()" class="secondary-btn">Reply</button>
   </div>
   
   <app-modal (dismiss)="hideModal()" *ngIf="modalVisible">
-    <h2 modalTitle>Compose</h2>
+    <h2 modalTitle>Reply</h2>
     <app-email-form (emailSubmit)="onEmailSubmit($event)" [email]="email"></app-email-form>
   </app-modal>
   

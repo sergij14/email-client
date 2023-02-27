@@ -12,7 +12,7 @@
     />
     <textarea
       *ngIf="controlType === 'textarea'"
-      class="field-input max-h-52"
+      class="field-input max-h-52 min-h-[140px]"
       [ngClass]="{ 'is-danger': !control.valid && control.dirty }"
       [formControl]="control"
     ></textarea>
