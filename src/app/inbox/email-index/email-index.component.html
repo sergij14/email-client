@@ -1,1 +1,6 @@
-<p>email-index works!</p>
+<div>
+  <div *ngFor="let email of emails">
+    {{ email.from }} <br />
+    {{ email.subject }} <br />
+  </div>
+</div>
