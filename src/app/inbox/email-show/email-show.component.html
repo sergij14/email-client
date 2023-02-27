@@ -1,1 +1,14 @@
-<p>email-show works!</p>
+<div>
+  <h3>
+    {{ email?.subject }}
+  </h3>
+  <p>
+    From: <i>{{ email?.from }}</i>
+  </p>
+  <p>
+    From: <i>{{ email?.to }}</i>
+  </p>
+  <div [innerHTML]="email?.html">
+    {{ email?.html }}
+  </div>
+</div>
