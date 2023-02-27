@@ -29,4 +29,16 @@
   .active-mail-route {
     @apply bg-gray-100 rounded-md;
   }
+  .modal-overlay {
+    @apply absolute left-0 top-0 w-full h-full bg-red-900 bg-opacity-75;
+  }
+  .modal {
+    @apply bg-white max-w-md mx-auto p-4 rounded-md;
+  }
+  .modal-header {
+    @apply border-b pb-2 mb-4 text-2xl font-semibold;
+  }
+  .modal-footer {
+    @apply flex space-x-2 border-t pt-2 mt-4;
+  }
 }
