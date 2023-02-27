@@ -4,10 +4,11 @@ import { InputComponent } from './input/input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
-  declarations: [InputComponent, NavbarComponent],
+  declarations: [InputComponent, NavbarComponent, ModalComponent],
   imports: [CommonModule, ReactiveFormsModule, AppRoutingModule],
-  exports: [InputComponent, NavbarComponent],
+  exports: [InputComponent, NavbarComponent, ModalComponent],
 })
 export class SharedModule {}
