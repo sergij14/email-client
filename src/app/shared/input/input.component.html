@@ -18,6 +18,12 @@
       Field is required
     </p>
     <p
+    *ngIf="control.errors?.['email']"
+    class="field-error-msg"
+  >
+    Enter a valid email
+  </p>
+    <p
       *ngIf="control.errors?.['minlength']"
       class="field-error-msg"
     >
