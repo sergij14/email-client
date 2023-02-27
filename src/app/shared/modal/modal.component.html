@@ -1,5 +1,5 @@
-<div (click)="onClose()" class="modal-overlay">
-  <div class="modal">
+<div (mousedown)="onClose()" class="modal-overlay">
+  <div class="modal" (mousedown)="$event.stopPropagation()">
     <div class="modal-header">
       <ng-content select="[modalTitle]"></ng-content>
     </div>
@@ -7,7 +7,7 @@
       <ng-content></ng-content>
     </div>
     <div class="modal-footer">
-      <button class="primary-btn">Ok</button>
+      <button (click)="onClose()" class="primary-btn">Ok</button>
       <ng-content select="[modalFooter]"></ng-content>
     </div>
   </div>

@@ -1,3 +1,8 @@
 <div class="border-b pb-2 mb-2">
-    <button class="primary-btn">Compose Email</button>
+  <button (click)="showModal()" class="primary-btn">Compose Email</button>
 </div>
+
+<app-modal (dismiss)="hideModal()" *ngIf="modalVisible">
+  <h2 modalTitle>Compose</h2>
+  <app-email-form></app-email-form>
+</app-modal>
