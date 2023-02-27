@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Email } from '../email';
+import { EmailService } from '../email.service';
 
 @Component({
   selector: 'app-email-form',
@@ -9,9 +10,10 @@ import { Email } from '../email';
 })
 export class EmailFormComponent implements OnInit {
   @Input() email!: Email;
+  @Output() emailSubmit = new EventEmitter();
   form!: FormGroup;
 
-  constructor() {}
+  constructor(private emailService: EmailService) {}
 
   ngOnInit() {
     const { subject, from, to, text } = this.email;
@@ -31,5 +33,7 @@ export class EmailFormComponent implements OnInit {
       );
       return;
     }
+
+    this.emailSubmit.emit(this.form.getRawValue());
   }
 }

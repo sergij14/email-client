@@ -29,4 +29,8 @@ export class EmailCreateComponent {
   hideModal() {
     this.modalVisible = false;
   }
+
+  onEmailSubmit(evt: Email) {
+    console.log(evt);
+  }
 }
