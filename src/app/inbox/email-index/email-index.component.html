@@ -1,8 +1,13 @@
-<div>
-  <div *ngFor="let email of emails">
-    <a [routerLink]="email.id">
-      {{ email.from }} <br />
-      {{ email.subject }} <br />
+<div class="flex flex-col space-y-2">
+  <div
+    *ngFor="let email of emails"
+    class="[&:not(:last-child)]:border-b pb-2"
+  >
+    <a routerLinkActive="active-mail-route" [routerLink]="email.id" class="flex flex-col hover:text-blue-600 p-2">
+      <span class="font-bold truncate">{{ email.from }}</span>
+      <p class="truncate">
+        {{ email.subject }}
+      </p>
     </a>
   </div>
 </div>

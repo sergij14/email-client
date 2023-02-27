@@ -26,4 +26,7 @@
   .section-title {
     @apply text-2xl md:text-3xl font-extrabold my-4;
   }
+  .active-mail-route {
+    @apply bg-gray-100 rounded-md;
+  }
 }
